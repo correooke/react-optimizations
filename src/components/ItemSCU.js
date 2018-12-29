@@ -2,8 +2,11 @@ import React, {Component} from 'react';
 
 class ItemSCU extends Component {
 
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        return nextProps.title !== this.props.title;
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log("shouldComponentUpdate=", this.props.title !== nextProps.title)
+        const isModify = (this.props.title !== nextProps.title ||
+            nextProps.secondLevel.data !== this.props.secondLevel.data);
+        return isModify;
     }
 
     render() {
